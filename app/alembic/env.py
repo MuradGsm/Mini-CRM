@@ -3,12 +3,13 @@ import asyncio
 from sqlalchemy.ext.asyncio import async_engine_from_config
 from sqlalchemy import Connection
 from sqlalchemy import pool
-
+import sys
 from os.path import dirname, abspath
 from alembic import context
 from app.core.database import Base
 from app.core.conf import setting
-import sys
+from app.models.user_model import User
+
 
 config = context.config
 sys.path.insert(0, dirname(dirname(abspath(__file__))))
