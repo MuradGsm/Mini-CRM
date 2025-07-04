@@ -10,7 +10,7 @@ engine = create_async_engine(setting.DATABASE_URL)
 async_session = async_sessionmaker(engine, expire_on_commit=False, class_=AsyncSession)
 
 async def get_session() -> AsyncSession:
-    async with async_session as session:
+    async with async_session() as session:
         yield session
 
 int_pk = Annotated[int, mapped_column(primary_key=True)]

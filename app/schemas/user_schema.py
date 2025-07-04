@@ -12,7 +12,7 @@ class UserUpdate(BaseModel):
     password: Optional[str] = None
     is_active: Optional[bool] = None
 
-class UserDB(UserUpdate):
+class UserDB(BaseModel):
     username: str
     email: EmailStr
     hashed_password: str
@@ -28,3 +28,7 @@ class UserOut(BaseModel):
 
     class Config:
         orm_mode=True
+
+class UserLogin(BaseModel):
+    username_or_email: str
+    password: str
